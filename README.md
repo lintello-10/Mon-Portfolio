@@ -1,4 +1,4 @@
-# 👋 Bonjour, je suis Bourama Dramé
+# 👋 Bienvenu, je suis Bourama Dramé
 
 <p align="left">
   <img src="https://komarev.com/ghpvc/?username=lintello-10&label=Profil%20Views&color=0e75b6&style=flat" alt="Profil Views" />
@@ -39,15 +39,6 @@
 Envie de voir plus de code, d'algorithmes et d'analyses de données ? 
 
 👉 **[Découvrez tous mes projets sur mon profil GitHub](https://github.com/lintello-10?tab=repositories)**
-
----
-
-## 📊 Statistiques GitHub
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=lintello-10&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub Stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=lintello-10&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" />
-</p>
 
 ---
 
