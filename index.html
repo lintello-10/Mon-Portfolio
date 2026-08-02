@@ -41,22 +41,29 @@
             margin-bottom: 2rem;
         }
 
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .badges img {
+            height: 28px;
+        }
+
         header h1 {
             font-size: 2.5rem;
             color: var(--heading-color);
-            margin-bottom: 0.5rem;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            color: var(--accent-color);
             margin-bottom: 1rem;
         }
 
         header .bio {
-            max-width: 700px;
+            max-width: 750px;
             margin: 0 auto;
             color: #8b949e;
+            font-size: 1.05rem;
         }
 
         section {
@@ -107,13 +114,22 @@
 
         .project-card h3 {
             color: var(--heading-color);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
         }
 
-        .project-card p {
+        .project-details {
+            list-style: none;
+            margin-bottom: 1.2rem;
+        }
+
+        .project-details li {
             color: #8b949e;
-            margin-bottom: 1rem;
+            margin-bottom: 0.4rem;
             font-size: 0.95rem;
+        }
+
+        .project-details strong {
+            color: var(--text-color);
         }
 
         .btn {
@@ -130,6 +146,19 @@
 
         .btn:hover {
             background-color: rgba(88, 166, 255, 0.1);
+        }
+
+        .stats-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .stats-container img {
+            max-width: 100%;
+            height: auto;
         }
 
         footer {
@@ -149,18 +178,23 @@
 <body>
 
     <div class="container">
-        <!-- En-tête / Profil -->
+        <!-- En-tête / Profil & Badges -->
         <header>
-            <h1>Bourama Dramé</h1>
-            <p>Étudiant en L3 Math-Info | Futur Data Scientist</p>
+            <div class="badges">
+                <img src="https://komarev.com/ghpvc/?username=lintello-10&label=Profil%20Views&color=0e75b6&style=flat" alt="Profil Views" />
+                <img src="https://img.shields.io/badge/Status-Étudiant%20L3%20Math--Info-blue?style=flat&logo=bookstack" alt="Status" />
+                <img src="https://img.shields.io/badge/Objectif-Data%20Scientist-orange?style=flat&logo=target" alt="Goal" />
+            </div>
+            
+            <h1>Bonjour, je suis Bourama Dramé</h1>
             <p class="bio">
-                Étudiant à la Faculté des Sciences de Bizerte (Tunisie). Je combine la rigueur analytique des mathématiques et le développement logiciel pour concevoir des solutions de Science des Données et de Machine Learning à fort impact.
+                Étudiant en troisième année de licence <strong>Mathématiques et Informatique (Math-Info)</strong> à la Faculté des Sciences de Bizerte (Tunisie). Je combine la rigueur analytique des mathématiques au développement logiciel pour concevoir des solutions de <strong>Science des Données</strong> et de <strong>Machine Learning</strong> à fort impact.
             </p>
         </header>
 
         <!-- Stack Technique -->
         <section>
-            <h2>Stack Technique</h2>
+            <h2>🛠️ Stack Technique</h2>
             <div class="skills-grid">
                 <span class="skill-tag">Python</span>
                 <span class="skill-tag">SQL (Google BigQuery)</span>
@@ -168,40 +202,67 @@
                 <span class="skill-tag">NumPy</span>
                 <span class="skill-tag">Scikit-Learn</span>
                 <span class="skill-tag">XGBoost</span>
+                <span class="skill-tag">Seaborn / Matplotlib</span>
                 <span class="skill-tag">Streamlit</span>
                 <span class="skill-tag">Git & GitHub</span>
+                <span class="skill-tag">VS Code</span>
             </div>
         </section>
 
         <!-- Projets Phares -->
         <section>
-            <h2>Projets Phares</h2>
+            <h2>🚀 Projets Phares</h2>
             <div class="projects-grid">
                 
                 <!-- Projet 1 -->
                 <div class="project-card">
-                    <h3>🛒 Pipeline E-Commerce & Prédiction d'Achat (GA4 + XGBoost)</h3>
-                    <p>Conception d'un pipeline complet d'ingénierie des caractéristiques à partir de données Google Analytics 4 (GA4) extraites de BigQuery, couplé à un modèle XGBoost optimisé pour prédire la conversion des utilisateurs, déployé sur Streamlit.</p>
-                    <a href="https://github.com/lintello-10" target="_blank" class="btn">Voir le projet</a>
+                    <h3>🛒 E-Commerce & Prédiction d'Achat (GA4 + XGBoost)</h3>
+                    <ul class="project-details">
+                        <li><strong>Le Problème :</strong> Analyser de larges volumes de données comportementales pour identifier les signaux d'achat des utilisateurs.</li>
+                        <li><strong>La Solution :</strong> Conception d'un pipeline complet d'ingénierie des caractéristiques (feature engineering) à partir de données Google Analytics 4 (GA4) extraites de Google Cloud BigQuery, couplé à un modèle de classification XGBoost optimisé.</li>
+                        <li><strong>Le Résultat :</strong> Une application interactive fluide déployée sur Streamlit permettant de prédire en temps réel la probabilité qu'un utilisateur concrétise son achat.</li>
+                    </ul>
+                    <a href="https://github.com/lintello-10/bq_ecommerce_project" target="_blank" class="btn">🔗 Voir le dépôt du projet</a>
                 </div>
 
                 <!-- Projet 2 -->
                 <div class="project-card">
                     <h3>🚢 Application Prédictive de Survie - Titanic</h3>
-                    <p>Analyse exploratoire des données (EDA), nettoyage rigoureux, traitement des valeurs manquantes et entraînement de modèles de classification prédictive performants via Scikit-Learn.</p>
-                    <a href="https://lintello-10.github.io/Titanic-Data-cleaning-Features-Engineering/" target="_blank" class="btn">Voir le projet</a>
+                    <ul class="project-details">
+                        <li><strong>Le Problème :</strong> Explorer un dataset classique de classification pour prédire le destin des passagers selon différents facteurs socio-démographiques.</li>
+                        <li><strong>La Solution :</strong> Réalisation d'une analyse exploratoire approfondie (EDA), nettoyage rigoureux des données, traitement des valeurs manquantes et entraînement de modèles prédictifs performants via Scikit-Learn.</li>
+                        <li><strong>Le Résultat :</strong> Un flux de travail de bout en bout propre, documenté et versionné, démontrant la maîtrise des fondamentaux du Machine Learning.</li>
+                    </ul>
+                    <a href="https://github.com/lintello-10/Titanic-Data-cleaning-Features-Engineering" target="_blank" class="btn">🔗 Voir le dépôt Titanic</a>
                 </div>
 
             </div>
         </section>
 
-        <!-- Contact & Liens -->
+        <!-- Tous les travaux -->
         <section>
-            <h2>Contact & Objectifs</h2>
+            <h2>📂 Explorez l'ensemble de mes travaux</h2>
             <p style="color: #8b949e; margin-bottom: 1rem;">
-                Objectif 2027/2028 : Préparation de mon entrée en Master en Data Science en France. À la recherche d'opportunités de stage et de collaborations stimulantes.
+                Envie de voir plus de code, d'algorithmes et d'analyses de données ?
             </p>
-            <a href="https://github.com/lintello-10?tab=repositories" target="_blank" class="btn">Voir tous mes dépôts GitHub</a>
+            <a href="https://github.com/lintello-10?tab=repositories" target="_blank" class="btn">👉 Découvrez tous mes projets sur mon profil GitHub</a>
+        </section>
+
+        <!-- Statistiques GitHub -->
+        <section>
+            <h2>📊 Statistiques GitHub</h2>
+            <div class="stats-container">
+                <img src="https://github-readme-stats.vercel.app/api?username=lintello-10&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub Stats" />
+                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=lintello-10&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" />
+            </div>
+        </section>
+
+        <!-- Contact & Objectifs -->
+        <section>
+            <h2>📫 Connectons-nous !</h2>
+            <p style="color: #8b949e;">
+                <strong>Objectif 2027/2028 :</strong> Préparation de mon entrée en Master en Data Science. Je suis activement à la recherche d'opportunités de stage ou de collaborations stimulantes. Discutons-en !
+            </p>
         </section>
 
         <!-- Pied de page -->
