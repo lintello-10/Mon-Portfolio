@@ -31,7 +31,7 @@
 * **Le Problème :** Explorer un dataset classique de classification pour prédire le destin des passagers selon différents facteurs socio-démographiques.
 * **La Solution :** Réalisation d'une analyse exploratoire approfondie (EDA), nettoyage rigoureux des données, traitement des valeurs manquantes et entraînement de modèles prédictifs performants via **Scikit-Learn**.
 * **Le Résultat :** Un flux de travail de bout en bout propre, documenté et versionné, démontrant la maîtrise des fondamentaux du Machine Learning.
-* **🔗 [Voir le dépôt Titanic](https://lintello-10.github.io/Titanic-Data-cleaning-Features-Engineering/)**
+* **🔗 [Voir le dépôt Titanic](https://github.com/lintello-10/Titanic-Data-cleaning-Features-Engineering)**
 
 ---
 
