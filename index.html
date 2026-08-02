@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bourama Dramé | Portfolio Data Science</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --text-color: #c9d1d9;
+            --heading-color: #ffffff;
+            --accent-color: #58a6ff;
+            --border-color: #30363d;
+            --tag-bg: #21262d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: var(--heading-color);
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        header .bio {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #8b949e;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--heading-color);
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background-color: var(--tag-bg);
+            color: var(--accent-color);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-color);
+        }
+
+        .project-card h3 {
+            color: var(--heading-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card p {
+            color: #8b949e;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 6px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: rgba(88, 166, 255, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-color);
+            color: #8b949e;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- En-tête / Profil -->
+        <header>
+            <h1>Bourama Dramé</h1>
+            <p>Étudiant en L3 Math-Info | Futur Data Scientist</p>
+            <p class="bio">
+                Étudiant à la Faculté des Sciences de Bizerte (Tunisie). Je combine la rigueur analytique des mathématiques et le développement logiciel pour concevoir des solutions de Science des Données et de Machine Learning à fort impact.
+            </p>
+        </header>
+
+        <!-- Stack Technique -->
+        <section>
+            <h2>Stack Technique</h2>
+            <div class="skills-grid">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">SQL (Google BigQuery)</span>
+                <span class="skill-tag">Pandas</span>
+                <span class="skill-tag">NumPy</span>
+                <span class="skill-tag">Scikit-Learn</span>
+                <span class="skill-tag">XGBoost</span>
+                <span class="skill-tag">Streamlit</span>
+                <span class="skill-tag">Git & GitHub</span>
+            </div>
+        </section>
+
+        <!-- Projets Phares -->
+        <section>
+            <h2>Projets Phares</h2>
+            <div class="projects-grid">
+                
+                <!-- Projet 1 -->
+                <div class="project-card">
+                    <h3>🛒 Pipeline E-Commerce & Prédiction d'Achat (GA4 + XGBoost)</h3>
+                    <p>Conception d'un pipeline complet d'ingénierie des caractéristiques à partir de données Google Analytics 4 (GA4) extraites de BigQuery, couplé à un modèle XGBoost optimisé pour prédire la conversion des utilisateurs, déployé sur Streamlit.</p>
+                    <a href="https://github.com/lintello-10" target="_blank" class="btn">Voir le projet</a>
+                </div>
+
+                <!-- Projet 2 -->
+                <div class="project-card">
+                    <h3>🚢 Application Prédictive de Survie - Titanic</h3>
+                    <p>Analyse exploratoire des données (EDA), nettoyage rigoureux, traitement des valeurs manquantes et entraînement de modèles de classification prédictive performants via Scikit-Learn.</p>
+                    <a href="https://lintello-10.github.io/Titanic-Data-cleaning-Features-Engineering/" target="_blank" class="btn">Voir le projet</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact & Liens -->
+        <section>
+            <h2>Contact & Objectifs</h2>
+            <p style="color: #8b949e; margin-bottom: 1rem;">
+                Objectif 2027/2028 : Préparation de mon entrée en Master en Data Science en France. À la recherche d'opportunités de stage et de collaborations stimulantes.
+            </p>
+            <a href="https://github.com/lintello-10?tab=repositories" target="_blank" class="btn">Voir tous mes dépôts GitHub</a>
+        </section>
+
+        <!-- Pied de page -->
+        <footer>
+            <p>Conçu par Bourama Dramé — Propulsé par <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></p>
+        </footer>
+    </div>
+
+</body>
+</html>
