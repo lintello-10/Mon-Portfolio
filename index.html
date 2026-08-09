@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bourama Dramé | Portfolio Data Science</title>
+    <title>Bourama Dramé | Portfolio Data Science & MLOps</title>
     <style>
         :root {
-            --bg-color: #0d1117;
-            --card-bg: #161b22;
+            --bg-color: #0b0f17;
+            --card-bg: #111622;
             --text-color: #c9d1d9;
             --heading-color: #ffffff;
-            --accent-color: #58a6ff;
-            --border-color: #30363d;
-            --tag-bg: #21262d;
+            --accent-color: #38bdf8;
+            --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            --border-color: #1e293b;
+            --tag-bg: #172033;
+            --hover-border: #38bdf8;
         }
 
         * {
@@ -26,19 +28,19 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
-            padding: 2rem 1rem;
+            padding: 2.5rem 1rem;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 950px;
             margin: 0 auto;
         }
 
         header {
             text-align: center;
-            padding: 3rem 0;
+            padding: 3.5rem 0 2.5rem 0;
             border-bottom: 1px solid var(--border-color);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
 
         .badges {
@@ -51,31 +53,42 @@
 
         .badges img {
             height: 28px;
+            border-radius: 4px;
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: var(--heading-color);
             margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        header h1 span {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         header .bio {
-            max-width: 750px;
+            max-width: 780px;
             margin: 0 auto;
-            color: #8b949e;
-            font-size: 1.05rem;
+            color: #94a3b8;
+            font-size: 1.1rem;
         }
 
         section {
-            margin-bottom: 3rem;
+            margin-bottom: 3.5rem;
         }
 
         h2 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: var(--heading-color);
             margin-bottom: 1.5rem;
             border-left: 4px solid var(--accent-color);
-            padding-left: 10px;
+            padding-left: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .skills-grid {
@@ -87,44 +100,91 @@
         .skill-tag {
             background-color: var(--tag-bg);
             color: var(--accent-color);
-            padding: 6px 14px;
-            border-radius: 20px;
+            padding: 7px 16px;
+            border-radius: 25px;
             font-size: 0.9rem;
             border: 1px solid var(--border-color);
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
         }
 
         .projects-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1.5rem;
+            gap: 1.8rem;
         }
 
         .project-card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: transform 0.2s ease, border-color 0.2s ease;
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-gradient);
+            opacity: 0;
+            transition: opacity 0.25s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--accent-color);
+            transform: translateY(-4px);
+            border-color: var(--hover-border);
+            box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.15);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
         }
 
         .project-card h3 {
             color: var(--heading-color);
-            margin-bottom: 0.8rem;
+            font-size: 1.35rem;
+        }
+
+        .badge-live {
+            background-color: rgba(70, 227, 183, 0.15);
+            color: #46e3b7;
+            border: 1px solid rgba(70, 227, 183, 0.3);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .project-details {
             list-style: none;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
         }
 
         .project-details li {
-            color: #8b949e;
-            margin-bottom: 0.4rem;
+            color: #94a3b8;
+            margin-bottom: 0.6rem;
             font-size: 0.95rem;
         }
 
@@ -132,46 +192,62 @@
             color: var(--text-color);
         }
 
+        .project-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             background-color: transparent;
             color: var(--accent-color);
             border: 1px solid var(--accent-color);
-            padding: 6px 14px;
-            border-radius: 6px;
+            padding: 8px 16px;
+            border-radius: 8px;
             text-decoration: none;
             font-size: 0.9rem;
-            transition: background-color 0.2s;
+            font-weight: 500;
+            transition: all 0.2s ease;
         }
 
         .btn:hover {
-            background-color: rgba(88, 166, 255, 0.1);
+            background-color: rgba(56, 189, 248, 0.1);
+            transform: translateY(-1px);
         }
 
-        .stats-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-            margin-top: 1rem;
+        .btn-primary {
+            background: var(--accent-gradient);
+            color: #0b0f17;
+            border: none;
+            font-weight: 600;
         }
 
-        .stats-container img {
-            max-width: 100%;
-            height: auto;
+        .btn-primary:hover {
+            opacity: 0.9;
+            background: var(--accent-gradient);
+            color: #0b0f17;
         }
 
         footer {
             text-align: center;
-            padding: 2rem 0;
+            padding: 2.5rem 0;
             border-top: 1px solid var(--border-color);
-            color: #8b949e;
+            color: #64748b;
             font-size: 0.9rem;
         }
 
         footer a {
             color: var(--accent-color);
             text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
         }
     </style>
 </head>
@@ -183,29 +259,29 @@
             <div class="badges">
                 <img src="https://komarev.com/ghpvc/?username=lintello-10&label=Profil%20Views&color=0e75b6&style=flat" alt="Profil Views" />
                 <img src="https://img.shields.io/badge/Status-Étudiant%20L3%20Math--Info-blue?style=flat&logo=bookstack" alt="Status" />
-                <img src="https://img.shields.io/badge/Objectif-Data%20Scientist-orange?style=flat&logo=target" alt="Goal" />
+                <img src="https://img.shields.io/badge/Focus-MLOps%20%26%20Data%20Science-orange?style=flat&logo=target" alt="Goal" />
             </div>
             
-            <h1>Dramé Bourama</h1>
+            <h1>Bourama <span>Dramé</span></h1>
             <p class="bio">
-                Étudiant en troisième année de licence <strong>Mathématiques et Informatique (Math-Info)</strong> à la Faculté des Sciences de Bizerte (Tunisie). Je combine la rigueur analytique des mathématiques au développement logiciel pour concevoir des solutions de <strong>Science des Données</strong> et de <strong>Machine Learning</strong> à fort impact.
+                Étudiant en troisième année de licence <strong>Mathématiques et Informatique (Math-Info)</strong> à la Faculté des Sciences de Bizerte (Tunisie). Je combine la rigueur analytique des mathématiques au développement logiciel pour concevoir, industrialiser et déployer des solutions de <strong>Science des Données</strong> et de <strong>Machine Learning (MLOps)</strong> à fort impact.
             </p>
         </header>
 
         <!-- Stack Technique -->
         <section>
-            <h2>🛠️ Stack Technique</h2>
+            <h2>🛠️ Stack Technique & MLOps</h2>
             <div class="skills-grid">
                 <span class="skill-tag">Python</span>
+                <span class="skill-tag">FastAPI</span>
+                <span class="skill-tag">Docker & Docker Compose</span>
                 <span class="skill-tag">SQL (Google BigQuery)</span>
-                <span class="skill-tag">Pandas</span>
-                <span class="skill-tag">NumPy</span>
+                <span class="skill-tag">Pandas / NumPy</span>
                 <span class="skill-tag">Scikit-Learn</span>
                 <span class="skill-tag">XGBoost</span>
-                <span class="skill-tag">Seaborn / Matplotlib</span>
+                <span class="skill-tag">Render Cloud</span>
                 <span class="skill-tag">Streamlit</span>
                 <span class="skill-tag">Git & GitHub</span>
-                <span class="skill-tag">VS Code</span>
             </div>
         </section>
 
@@ -214,26 +290,55 @@
             <h2>🚀 Projets Phares</h2>
             <div class="projects-grid">
                 
-                <!-- Projet 1 -->
+                <!-- Projet 1 : API MLOps E-Commerce (Le plus récent) -->
                 <div class="project-card">
-                    <h3>🛒 E-Commerce & Prédiction d'Achat (GA4 + XGBoost)</h3>
+                    <div class="project-header">
+                        <h3>⚡ API MLOps E-Commerce (FastAPI + XGBoost + Docker)</h3>
+                        <span class="badge-live">Live sur Render</span>
+                    </div>
                     <ul class="project-details">
-                        <li><strong>Le Problème :</strong> Analyser de larges volumes de données comportementales pour identifier les signaux d'achat des utilisateurs.</li>
-                        <li><strong>La Solution :</strong> Conception d'un pipeline complet d'ingénierie des caractéristiques (feature engineering) à partir de données Google Analytics 4 (GA4) extraites de Google Cloud BigQuery, couplé à un modèle de classification XGBoost optimisé.</li>
-                        <li><strong>Le Résultat :</strong> Une application interactive fluide déployée sur Streamlit permettant de prédire en temps réel la probabilité qu'un utilisateur concrétise son achat.</li>
+                        <li><strong>Le Problème :</strong> Transformer un modèle de Machine Learning brut en un service web production-ready, sécurisé et accessible en temps réel.</li>
+                        <li><strong>La Solution :</strong> Développement d'une API REST asynchrone avec <strong>FastAPI</strong> intégrant une validation de données stricte (Pydantic avec contraintes <code>ge=0</code>), une gestion des exceptions personnalisée et un endpoint de monitoring (<code>/health</code>). Le tout conteneurisé via <strong>Docker</strong> et déployé dans le cloud sur <strong>Render</strong>.</li>
+                        <li><strong>Le Résultat :</strong> Un service cloud hautement performant avec documentation interactive instantanée (Swagger UI) et reproductibilité totale par conteneur.</li>
                     </ul>
-                    <a href="https://github.com/lintello-10/bq_ecommerce_project" target="_blank" class="btn">🔗 Voir le dépôt du projet</a>
+                    <div class="project-links">
+                        <a href="https://ecommerce-ml-api-gqub.onrender.com/docs" target="_blank" class="btn btn-primary">⚡ Tester l'API en Live (/docs)</a>
+                        <a href="https://github.com/lintello-10/ecommerce_ml_api" target="_blank" class="btn">🔗 Voir le dépôt GitHub</a>
+                    </div>
                 </div>
 
-                <!-- Projet 2 -->
+                <!-- Projet 2 : GA4 E-Commerce (Streamlit) -->
                 <div class="project-card">
-                    <h3>🚢 Application Prédictive de Survie - Titanic</h3>
+                    <div class="project-header">
+                        <h3>🛒 E-Commerce & Prédiction d'Achat (GA4 + BigQuery + Streamlit)</h3>
+                        <span class="badge-live">App Streamlit</span>
+                    </div>
                     <ul class="project-details">
-                        <li><strong>Le Problème :</strong> Explorer un dataset classique de classification pour prédire le destin des passagers selon différents facteurs socio-démographiques.</li>
-                        <li><strong>La Solution :</strong> Réalisation d'une analyse exploratoire approfondie (EDA), nettoyage rigoureux des données, traitement des valeurs manquantes et entraînement de modèles prédictifs performants via Scikit-Learn.</li>
-                        <li><strong>Le Résultat :</strong> Un flux de travail de bout en bout propre, documenté et versionné, démontrant la maîtrise des fondamentaux du Machine Learning.</li>
+                        <li><strong>Le Problème :</strong> Extraire et analyser de larges volumes de données comportementales (Google Analytics 4) pour identifier les signaux d'achat utilisateurs.</li>
+                        <li><strong>La Solution :</strong> Requêtage SQL avancé de structures imbriquées sur <strong>Google Cloud BigQuery</strong>, ingénierie des caractéristiques (feature engineering) sur plus de 79k lignes, et entraînement d'un classificateur <strong>XGBoost</strong>.</li>
+                        <li><strong>Le Résultat :</strong> Une application analytique et prédictive interactive déployée sur Streamlit.</li>
                     </ul>
-                    <a href="https://github.com/lintello-10/Titanic-Data-cleaning-Features-Engineering" target="_blank" class="btn">🔗 Voir le dépôt Titanic</a>
+                    <div class="project-links">
+                        <a href="https://bqecommerceproject-up6hblseqvj8tggchxdfjt.streamlit.app/" target="_blank" class="btn btn-primary">🌐 Voir l'application Live</a>
+                        <a href="https://github.com/lintello-10/bq_ecommerce_project" target="_blank" class="btn">🔗 Voir le dépôt BigQuery</a>
+                    </div>
+                </div>
+
+                <!-- Projet 3 : Titanic -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>🚢 Application Prédictive de Survie - Titanic</h3>
+                        <span class="badge-live">Data Cleaning & ML</span>
+                    </div>
+                    <ul class="project-details">
+                        <li><strong>Le Problème :</strong> Explorer un dataset de classification classique pour prédire le destin des passagers selon des critères socio-démographiques.</li>
+                        <li><strong>La Solution :</strong> EDA approfondie, nettoyage rigoureux, imputation intelligente des valeurs manquantes par classes et encodage catégorique optimisé via <strong>Scikit-Learn</strong>.</li>
+                        <li><strong>Le Résultat :</strong> Un workflow complet de bout en bout illustrant la maîtrise des fondamentaux du traitement des données.</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://titanic-data-cleaning-features-engineering-cxmhasqwtd3xwghum4p.streamlit.app/" target="_blank" class="btn btn-primary">🌐 Voir l'application Live</a>
+                        <a href="https://github.com/lintello-10/Titanic-Data-cleaning-Features-Engineering" target="_blank" class="btn">🔗 Voir le dépôt Titanic</a>
+                    </div>
                 </div>
 
             </div>
@@ -242,23 +347,23 @@
         <!-- Tous les travaux -->
         <section>
             <h2>📂 Explorez l'ensemble de mes travaux</h2>
-            <p style="color: #8b949e; margin-bottom: 1rem;">
-                Envie de voir plus de code, d'algorithmes et d'analyses de données ?
+            <p style="color: #94a3b8; margin-bottom: 1.2rem;">
+                Envie de découvrir plus de code source, d'algorithmes et de projets de recherche en science des données ?
             </p>
-            <a href="https://github.com/lintello-10?tab=repositories" target="_blank" class="btn">👉 Découvrez tous mes projets sur mon profil GitHub</a>
+            <a href="https://github.com/lintello-10?tab=repositories" target="_blank" class="btn">👉 Découvrez tous mes dépôts sur mon profil GitHub</a>
         </section>        
         
         <!-- Contact & Objectifs -->
         <section>
             <h2>📫 Connectons-nous !</h2>
-            <p style="color: #8b949e;">
-                <strong>Objectif 2027/2028 :</strong> Préparation de mon entrée en Master en Data Science. Je suis activement à la recherche d'opportunités de stage ou de collaborations stimulantes. Discutons-en !
+            <p style="color: #94a3b8; font-size: 1.05rem;">
+                <strong>Objectif 2027/2028 :</strong> Préparation de mon entrée en Master en Data Science. Je suis activement à la recherche d'opportunités de stage ou de collaborations stimulantes en Data Science et MLOps. Discutons-en !
             </p>
         </section>
 
         <!-- Pied de page -->
         <footer>
-            <p>Conçu par Bourama Dramé — Propulsé par <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></p>
+            <p>Conçu avec passion par Bourama Dramé — Propulsé par <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></p>
         </footer>
     </div>
 
