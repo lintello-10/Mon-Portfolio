@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bourama Dramé — Data Science & MLOps</title>
+<title>Dramé Bourama — Data Science & MLOps</title>
 <meta name="description" content="Portfolio de Bourama Dramé, étudiant L3 Math-Info, spécialisé en Data Science et MLOps (FastAPI, Docker, XGBoost).">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -98,10 +98,12 @@
     line-height:1.08;
     margin-bottom:1.3rem;
   }
-  h1.title .accent{
-    background:linear-gradient(120deg, var(--indigo), var(--cyan));
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-    background-clip:text;
+  h1.title .accent {
+    background: linear-gradient(135deg, var(--indigo) 20%, var(--cyan) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 25px rgba(45,212,232,0.25));
+}
   }
 
   .lede{
@@ -125,7 +127,10 @@
     background:linear-gradient(120deg, var(--indigo), #5b63e0);
     color:#0a0d12; border:none; font-weight:600;
   }
-  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 8px 24px -8px rgba(124,131,253,0.55);}
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px -6px rgba(124,131,253,0.65);
+}
   .btn-ghost{color:var(--text); background:var(--surface);}
   .btn-ghost:hover{border-color:var(--border-hover); color:var(--heading); transform:translateY(-2px);}
 
@@ -155,10 +160,11 @@
     background:var(--bg-2); border:1px solid var(--border-hover);
     font-size:1rem;
   }
-  .p-stage.active .p-node{
-    border-color:var(--cyan);
-    box-shadow:0 0 0 3px rgba(45,212,232,0.12), 0 0 14px rgba(45,212,232,0.35);
-    animation:pulse 2.4s ease-in-out infinite;
+  .p-stage.active .p-node {
+    border-color: var(--cyan);
+    box-shadow: 0 0 0 4px rgba(45,212,232,0.15), 0 0 18px rgba(45,212,232,0.45);
+    animation: pulse 2s ease-in-out infinite;
+}
   }
   @keyframes pulse{
     0%,100%{box-shadow:0 0 0 3px rgba(45,212,232,0.12), 0 0 14px rgba(45,212,232,0.35);}
@@ -452,7 +458,7 @@
 </div>
 
 <footer>
-  <p>Conçu par Bourama Dramé — propulsé par <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a></p>
+  <p>Conçu par Dramé Bourama — propulsé par <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a></p>
 </footer>
 
 </body>
