@@ -376,39 +376,39 @@
       <article class="project-card">
         <div class="p-head">
           <h3>API MLOps E-Commerce — Prédiction d'achat en temps réel</h3>
-          <span class="p-status live">● Live</span>
+          <span class="p-status live">● Live V2</span>
         </div>
-        <p class="p-role">FastAPI · XGBoost · Docker · Render</p>
+        <p class="p-role">FastAPI · XGBoost · Docker · Streamlit Frontend</p>
         <div class="p-body">
-          <p><b>Problème :</b> transformer un modèle de Machine Learning brut en un service web sécurisé, accessible en temps réel et prêt pour la production.</p>
-          <p><b>Solution :</b> API REST asynchrone avec validation stricte des données (Pydantic, contraintes <code>ge=0</code>), gestion d'exceptions personnalisée et endpoint de monitoring <code>/health</code> ; conteneurisation Docker et déploiement cloud sur Render.</p>
-          <p><b>Résultat :</b> service performant, documentation interactive Swagger UI et reproductibilité totale par conteneur.</p>
+          <p><b>Évolution (V2) :</b> passage d'une logique monolithique à une architecture <b>client-serveur</b> découplée. Le modèle est désormais encapsulé dans une API REST sécurisée, consommée par une application Streamlit légère.</p>
+          <p><b>Solution :</b> API asynchrone (Pydantic), conteneurisation Docker, et interface Streamlit interactive communiquant en temps réel via requêtes HTTP.</p>
+          <p><b>Résultat :</b> architecture professionnelle, scalable et séparation claire entre la logique métier (ML) et l'interface utilisateur.</p>
         </div>
         <div class="p-stack">
-          <span>FastAPI</span><span>XGBoost</span><span>Docker</span><span>Pydantic</span><span>Render</span>
+          <span>FastAPI</span><span>XGBoost</span><span>Docker</span><span>Streamlit</span><span>Render</span>
         </div>
         <div class="p-links">
-          <a href="https://ecommerce-ml-api-gqub.onrender.com/docs" target="_blank" rel="noopener" class="btn btn-primary">⚡ Tester l'API (/docs)</a>
-          <a href="https://github.com/lintello-10/ecommerce_ml_api" target="_blank" rel="noopener" class="btn btn-ghost">Code source ↗</a>
+          <a href="https://ecommercemlapi-nb2638m2scw3u8ztmtts4q.streamlit.app/" target="_blank" rel="noopener" class="btn btn-primary">🌐 Voir l'app (V2)</a>
+          <a href="https://ecommerce-ml-api-gqub.onrender.com/docs" target="_blank" rel="noopener" class="btn btn-ghost">⚡ Tester l'API</a>
+          <a href="https://github.com/lintello-10/ecommerce_ml_api" target="_blank" rel="noopener" class="btn btn-ghost">Code Source ↗</a>
         </div>
       </article>
 
       <article class="project-card">
         <div class="p-head">
           <h3>Analyse & prédiction d'achat — GA4 + BigQuery</h3>
-          <span class="p-status live">● App live</span>
+          <span class="p-status live">● Live V1</span>
         </div>
-        <p class="p-role">BigQuery SQL · XGBoost · Streamlit</p>
+        <p class="p-role">BigQuery SQL · XGBoost · Streamlit (Monolithique)</p>
         <div class="p-body">
-          <p><b>Problème :</b> extraire et analyser un large volume de données comportementales (Google Analytics 4) pour identifier les signaux d'achat des utilisateurs.</p>
-          <p><b>Solution :</b> requêtage SQL avancé de structures imbriquées sur Google Cloud BigQuery, feature engineering sur plus de <b>79 000 lignes</b>, entraînement d'un classificateur XGBoost.</p>
-          <p><b>Résultat :</b> application analytique et prédictive interactive déployée sur Streamlit.</p>
+          <p><b>Problème :</b> extraire et analyser un large volume de données comportementales (GA4) pour identifier les signaux d'achat.</p>
+          <p><b>Solution :</b> requêtage SQL sur structures imbriquées (BigQuery), feature engineering sur 79 000 lignes et entraînement d'un modèle XGBoost. <i>Cette version utilise une approche monolithique où le modèle est chargé localement dans l'application.</i></p>
         </div>
         <div class="p-stack">
           <span>BigQuery</span><span>SQL</span><span>XGBoost</span><span>Streamlit</span>
         </div>
         <div class="p-links">
-          <a href="https://bqecommerceproject-up6hblseqvj8tggchxdfjt.streamlit.app/" target="_blank" rel="noopener" class="btn btn-primary">🌐 Voir l'application</a>
+          <a href="https://bqecommerceproject-up6hblseqvj8tggchxdfjt.streamlit.app/" target="_blank" rel="noopener" class="btn btn-primary">🌐 Voir l'application (V1)</a>
           <a href="https://github.com/lintello-10/bq_ecommerce_project" target="_blank" rel="noopener" class="btn btn-ghost">Code source ↗</a>
         </div>
       </article>
