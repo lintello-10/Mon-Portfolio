@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dramé Bourama — Data Science & MLOps</title>
-<meta name="description" content="Portfolio of Bourama Dramé, 3rd-year Math & CS student, specializing in Data Science and MLOps (FastAPI, Docker, XGBoost).">
+<meta name="description" content="Portfolio of Bourama Dramé, 3rd-year Math & CS student, specializing in Data Science and MLOps (FastAPI, Docker, XGBoost, CI/CD).">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -103,7 +103,6 @@
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     background-clip: text;
     filter: drop-shadow(0 0 25px rgba(45,212,232,0.25));
-}
   }
 
   .lede{
@@ -130,7 +129,7 @@
   .btn-primary:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 30px -6px rgba(124,131,253,0.65);
-}
+  }
   .btn-ghost{color:var(--text); background:var(--surface);}
   .btn-ghost:hover{border-color:var(--border-hover); color:var(--heading); transform:translateY(-2px);}
 
@@ -148,7 +147,7 @@
     text-transform:uppercase; letter-spacing:0.08em; margin-bottom:1rem;
   }
   .pipeline-track{
-    display:flex; align-items:center; min-width:560px;
+    display:flex; align-items:center; min-width:620px;
   }
   .p-stage{
     display:flex; flex-direction:column; align-items:center; gap:8px;
@@ -164,7 +163,6 @@
     border-color: var(--cyan);
     box-shadow: 0 0 0 4px rgba(45,212,232,0.15), 0 0 18px rgba(45,212,232,0.45);
     animation: pulse 2s ease-in-out infinite;
-}
   }
   @keyframes pulse{
     0%,100%{box-shadow:0 0 0 3px rgba(45,212,232,0.12), 0 0 14px rgba(45,212,232,0.35);}
@@ -173,7 +171,7 @@
   .p-stage span{font-family:var(--mono); font-size:0.68rem; color:var(--text-dim);}
   .p-stage.active span{color:var(--cyan);}
   .p-connector{
-    flex:0.6; height:1px; background:linear-gradient(90deg, var(--border-hover), var(--border-hover));
+    flex:0.5; height:1px; background:linear-gradient(90deg, var(--border-hover), var(--border-hover));
     position:relative; top:-19px;
   }
 
@@ -298,8 +296,8 @@
     <h1 class="title">Dramé Bourama<br><span class="accent">Data Science &amp; MLOps</span></h1>
     <p class="lede">
     Mathematics and Computer Science student building the bridge between mathematical theory and <strong>production</strong> code. 
-    I build end-to-end data-driven solutions: from exploratory analysis and <strong>predictive models</strong> (XGBoost) 
-    to <strong>containerized APIs</strong> and interactive web applications.
+    I build end-to-end data-driven solutions: from exploratory analysis and <strong>predictive models</strong> (XGBoost), 
+    <strong>automated testing &amp; CI/CD pipelines</strong>, to <strong>containerized APIs</strong> and interactive web applications.
     </p>
     <div class="hero-cta">
       <a href="#projects" class="btn btn-primary">→ View projects</a>
@@ -308,12 +306,14 @@
     </div>
 
     <div class="pipeline">
-      <p class="pipeline-label">My MLOps workflow</p>
+      <p class="pipeline-label">My MLOps &amp; CI/CD workflow</p>
       
       <div class="pipeline-track">
         <div class="p-stage active"><div class="p-node">📊</div><span>DATA</span></div>
         <div class="p-connector"></div>
         <div class="p-stage active"><div class="p-node">🧠</div><span>MODEL</span></div>
+        <div class="p-connector"></div>
+        <div class="p-stage active"><div class="p-node">🔄</div><span>CI/CD</span></div>
         <div class="p-connector"></div>
         <div class="p-stage active"><div class="p-node">🐳</div><span>DOCKER</span></div>
         <div class="p-connector"></div>
@@ -337,10 +337,12 @@
         </div>
       </div>
       <div class="skill-row">
-        <span class="skill-row-label">MLOps</span>
+        <span class="skill-row-label">MLOps & DevOps</span>
         <div class="skill-tags">
           <span class="skill-tag">FastAPI</span>
           <span class="skill-tag">Docker &amp; Docker Compose</span>
+          <span class="skill-tag">GitHub Actions (CI/CD)</span>
+          <span class="skill-tag">Pytest</span>
           <span class="skill-tag">Pydantic</span>
           <span class="skill-tag">Render Cloud</span>
           <span class="skill-tag">Swagger / OpenAPI</span>
@@ -378,14 +380,14 @@
           <h3>E-Commerce MLOps API — Real-time Purchase Prediction</h3>
           <span class="p-status live">● Live V2</span>
         </div>
-        <p class="p-role">FastAPI · XGBoost · Docker · Streamlit Frontend</p>
+        <p class="p-role">FastAPI · XGBoost · Docker · GitHub Actions (CI/CD) · Streamlit</p>
         <div class="p-body">
-          <p><b>Evolution (V2):</b> transition from a monolithic logic to a decoupled <b>client-server</b> architecture. The model is now encapsulated in a secure REST API, consumed by a lightweight Streamlit application.</p>
-          <p><b>Solution:</b> Asynchronous API (Pydantic), Docker containerization, and an interactive Streamlit interface communicating in real-time via HTTP requests.</p>
-          <p><b>Result:</b> Professional, scalable architecture with a clear separation between business logic (ML) and user interface.</p>
+          <p><b>Evolution (V2):</b> transition from a monolithic logic to an industrialized <b>client-server MLOps</b> architecture protected by automated quality assurance.</p>
+          <p><b>Solution:</b> Asynchronous API with Pydantic validation, Docker containerization, <b>automated testing (Pytest) with GitHub Actions CI/CD pipelines</b>, and a decoupled Streamlit frontend.</p>
+          <p><b>Result:</b> Production-grade, scalable architecture ensuring high code reliability and automated regression testing on every push.</p>
         </div>
         <div class="p-stack">
-          <span>FastAPI</span><span>XGBoost</span><span>Docker</span><span>Streamlit</span><span>Render</span>
+          <span>FastAPI</span><span>XGBoost</span><span>Docker</span><span>GitHub Actions</span><span>Pytest</span><span>Streamlit</span><span>Render</span>
         </div>
         <div class="p-links">
           <a href="https://ecommercemlapi-nb2638m2scw3u8ztmtts4q.streamlit.app/" target="_blank" rel="noopener" class="btn btn-primary">🌐 View app (V2)</a>
