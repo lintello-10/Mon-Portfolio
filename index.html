@@ -191,7 +191,7 @@
   .skill-row{display:flex; gap:1rem; align-items:baseline; flex-wrap:wrap;}
   .skill-row-label{
     font-family:var(--mono); font-size:0.72rem; color:var(--text-dim);
-    width:110px; flex-shrink:0; text-transform:uppercase; letter-spacing:0.06em;
+    width:130px; flex-shrink:0; text-transform:uppercase; letter-spacing:0.06em;
   }
   .skill-tags{display:flex; flex-wrap:wrap; gap:0.5rem;}
   .skill-tag{
@@ -342,9 +342,11 @@
           <span class="skill-tag">FastAPI</span>
           <span class="skill-tag">Docker &amp; Docker Compose</span>
           <span class="skill-tag">GitHub Actions (CI/CD)</span>
+          <span class="skill-tag">MLflow</span>
           <span class="skill-tag">Pytest</span>
           <span class="skill-tag">Pydantic</span>
           <span class="skill-tag">Render Cloud</span>
+          <span class="skill-tag">Google Cloud</span>
           <span class="skill-tag">Swagger / OpenAPI</span>
         </div>
       </div>
@@ -355,7 +357,7 @@
           <span class="skill-tag">Scikit-Learn</span>
           <span class="skill-tag">XGBoost</span>
           <span class="skill-tag">Google BigQuery</span>
-          <span class="skill-tag">Seaborn/Matplotlib</span>    
+          <span class="skill-tag">Seaborn/Matplotlib</span>   
         </div>
       </div>
       <div class="skill-row">
@@ -374,6 +376,28 @@
     </div>
 
     <div class="projects">
+
+      <!-- NOUVEAU PROJET AJOUTÉ TOUT EN HAUT -->
+      <article class="project-card">
+        <div class="p-head">
+          <h3>Real-Time Fraud Detection API &amp; MLOps Architecture</h3>
+          <span class="p-status live">● Live Prod</span>
+        </div>
+        <p class="p-role">FastAPI · Scikit-Learn · XGBoost · MLflow · Docker · GitHub Actions · Streamlit</p>
+        <div class="p-body">
+          <p><b>Problem:</b> Detect financial transaction fraud instantly in high-throughput environments to prevent security breaches and financial losses.</p>
+          <p><b>Solution:</b> End-to-end MLOps web service featuring custom Scikit-Learn pipeline transformers (`FraudFeatureEngineer`), automated experiment tracking with <b>MLflow</b>, multi-model production endpoints, containerization, and a real-time streaming simulation frontend dashboard.</p>
+          <p><b>Business Impact &amp; Results:</b> Mitigates transaction risks and fraud losses proactively through automated risk-scoring, drastically reducing manual review overhead while ensuring a friction-free experience for legitimate users.</p>
+        </div>
+        <div class="p-stack">
+          <span>FastAPI</span><span>Scikit-Learn</span><span>XGBoost</span><span>MLflow</span><span>Docker</span><span>GitHub Actions</span><span>Google Cloud</span><span>Streamlit</span><span>Render</span>
+        </div>
+        <div class="p-links">
+          <a href="https://realtimefraudemlop-na4cnq9rg9awyedh8rhqsw.streamlit.app/" target="_blank" rel="noopener" class="btn btn-primary">🌐 View app</a>
+          <a href="https://real-time-fraude-mlop.onrender.com/docs" target="_blank" rel="noopener" class="btn btn-ghost">⚡ Test API</a>
+          <a href="https://github.com/lintello-10/real_time_fraude_mlop" target="_blank" rel="noopener" class="btn btn-ghost">Source Code ↗</a>
+        </div>
+      </article>
 
       <article class="project-card">
         <div class="p-head">
@@ -413,26 +437,6 @@
         <div class="p-links">
           <a href="https://bqecommerceproject-up6hblseqvj8tggchxdfjt.streamlit.app/" target="_blank" rel="noopener" class="btn btn-primary">🌐 View application (V1)</a>
           <a href="https://github.com/lintello-10/bq_ecommerce_project" target="_blank" rel="noopener" class="btn btn-ghost">Source code ↗</a>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <div class="p-head">
-          <h3>Titanic — Survival Prediction App</h3>
-          <span class="p-status demo">● Demo</span>
-        </div>
-        <p class="p-role">Scikit-Learn · Feature Engineering</p>
-        <div class="p-body">
-          <p><b>Problem:</b> Explore a classic classification dataset to predict the fate of passengers based on socio-demographic criteria.</p>
-          <p><b>Solution:</b> In-depth EDA, rigorous cleaning, smart imputation of missing values by class, and optimized categorical encoding using Scikit-Learn.</p>
-          <p><b>Result:</b> Complete end-to-end workflow demonstrating mastery of data processing fundamentals.</p>
-        </div>
-        <div class="p-stack">
-          <span>Pandas</span><span>Scikit-Learn</span><span>Streamlit</span>
-        </div>
-        <div class="p-links">
-          <a href="https://titanic-data-cleaning-features-engineering-cxmhasqwtd3xwghum4p.streamlit.app/" target="_blank" rel="noopener" class="btn btn-primary">🌐 View application</a>
-          <a href="https://github.com/lintello-10/Titanic-Data-cleaning-Features-Engineering" target="_blank" rel="noopener" class="btn btn-ghost">Source code ↗</a>
         </div>
       </article>
 
