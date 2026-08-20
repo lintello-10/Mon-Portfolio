@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="cyber-indigo">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root[data-theme="dark"] {
+  /* --- THÈME 1 : CYBER INDIGO & CYAN (Défaut) --- */
+  :root[data-theme="cyber-indigo"] {
     --bg:#0a0d12;
     --bg-2:#0d1119;
     --surface:#11151f;
@@ -22,21 +23,26 @@
     --indigo:#7c83fd;
     --cyan:#2dd4e8;
     --amber:#f2b84b;
+    --glow: rgba(124,131,253,0.06);
+    --accent-grad: linear-gradient(135deg, var(--indigo) 20%, var(--cyan) 100%);
   }
 
-  :root[data-theme="light"] {
-    --bg:#f8fafc;
-    --bg-2:#f1f5f9;
-    --surface:#ffffff;
-    --surface-hover:#f8fafc;
-    --border:#e2e8f0;
-    --border-hover:#cbd5e1;
-    --text:#475569;
-    --text-dim:#94a3b8;
-    --heading:#0f172a;
-    --indigo:#6366f1;
-    --cyan:#0ea5e9;
-    --amber:#d97706;
+  /* --- THÈME 2 : EMERALD MATRIX (Sombre stylisé alternatif) --- */
+  :root[data-theme="emerald-matrix"] {
+    --bg:#050b08;
+    --bg-2:#08140f;
+    --surface:#0c1c14;
+    --surface-hover:#10261c;
+    --border:#173627;
+    --border-hover:#224f38;
+    --text:#9fb8ac;
+    --text-dim:#648575;
+    --heading:#ecfdf5;
+    --indigo:#10b981;
+    --cyan:#34d399;
+    --amber:#fbbf24;
+    --glow: rgba(52,211,153,0.06);
+    --accent-grad: linear-gradient(135deg, #059669 20%, #34d399 100%);
   }
 
   :root{
@@ -50,19 +56,22 @@
 
   body{
     background:
-      radial-gradient(1100px 500px at 15% -5%, rgba(124,131,253,0.08), transparent 60%),
-      radial-gradient(900px 500px at 100% 10%, rgba(45,212,232,0.05), transparent 55%),
+      /* Motif grille high-tech subtil en arrière-plan */
+      linear-gradient(to right, rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.015) 1px, transparent 1px),
+      radial-gradient(1100px 500px at 15% -5%, var(--glow), transparent 60%),
       var(--bg);
+    background-size: 32px 32px, 32px 32px, auto, auto;
     color:var(--text);
     font-family:var(--sans);
     line-height:1.65;
     font-size:16px;
     -webkit-font-smoothing:antialiased;
-    transition: background 0.3s ease, color 0.3s ease;
+    transition: background 0.4s ease, color 0.4s ease;
   }
 
   a{color:inherit;}
-  ::selection{background:rgba(124,131,253,0.35); color:#fff;}
+  ::selection{background:rgba(45,212,232,0.35); color:#fff;}
 
   :focus-visible{
     outline:2px solid var(--cyan);
@@ -98,15 +107,16 @@
   .theme-toggle {
     background: var(--surface);
     border: 1px solid var(--border);
-    color: var(--text);
-    width: 32px; height: 32px;
-    border-radius: 50%;
+    color: var(--heading);
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
     cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.9rem;
+    display: flex; align-items: center; gap: 6px;
+    font-family: var(--mono);
+    font-size: 0.72rem;
     transition: all 0.2s;
   }
-  .theme-toggle:hover {border-color: var(--cyan); transform: scale(1.05);}
+  .theme-toggle:hover {border-color: var(--cyan); transform: translateY(-1px);}
 
   @media (max-width:600px){ .nav-links{gap:1rem;} .nav-links a{font-size:0.72rem;} }
 
@@ -128,7 +138,7 @@
     margin-bottom:1.3rem;
   }
   h1.title .accent {
-    background: linear-gradient(135deg, var(--indigo) 20%, var(--cyan) 100%);
+    background: var(--accent-grad);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     background-clip: text;
     filter: drop-shadow(0 0 25px rgba(45,212,232,0.25));
@@ -148,12 +158,12 @@
     white-space:nowrap;
   }
   .btn-primary{
-    background:linear-gradient(120deg, var(--indigo), #5b63e0);
+    background: var(--accent-grad);
     color:#fff; border:none; font-weight:600;
   }
   .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 30px -6px rgba(124,131,253,0.5);
+    box-shadow: 0 10px 30px -6px var(--cyan);
   }
   .btn-ghost{color:var(--text); background:var(--surface);}
   .btn-ghost:hover{border-color:var(--border-hover); color:var(--heading); transform:translateY(-2px);}
@@ -181,12 +191,12 @@
   }
   .p-stage.active .p-node {
     border-color: var(--cyan);
-    box-shadow: 0 0 0 4px rgba(45,212,232,0.15), 0 0 18px rgba(45,212,232,0.45);
+    box-shadow: 0 0 0 4px var(--glow), 0 0 18px var(--cyan);
     animation: pulse 2s ease-in-out infinite;
   }
   @keyframes pulse{
-    0%,100%{box-shadow:0 0 0 3px rgba(45,212,232,0.12), 0 0 14px rgba(45,212,232,0.35);}
-    50%{box-shadow:0 0 0 5px rgba(45,212,232,0.18), 0 0 20px rgba(45,212,232,0.5);}
+    0%,100%{box-shadow:0 0 0 3px var(--glow), 0 0 14px var(--cyan);}
+    50%{box-shadow:0 0 0 5px var(--glow), 0 0 20px var(--cyan);}
   }
   .p-stage span{font-family:var(--mono); font-size:0.68rem; color:var(--text-dim);}
   .p-stage.active span{color:var(--cyan);}
@@ -232,7 +242,7 @@
     background: var(--bg-2); color: var(--heading); border-color: var(--cyan);
   }
 
-  /* ---------- PROJECTS (GLOW EFFECT & CARDS) ---------- */
+  /* ---------- PROJECTS ---------- */
   .projects{display:flex; flex-direction:column; gap:1.3rem;}
   
   .project-card{
@@ -245,12 +255,11 @@
     transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   }
 
-  /* Spotlight mouse glow effect */
   .project-card::before {
     content: '';
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(124,131,253,0.06), transparent 40%);
+    background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), var(--glow), transparent 40%);
     opacity: 0;
     transition: opacity 0.3s;
     pointer-events: none;
@@ -260,7 +269,7 @@
   .project-card:hover{
     transform: translateY(-3px);
     border-color: var(--indigo);
-    box-shadow: 0 16px 40px -20px rgba(124,131,253,0.3);
+    box-shadow: 0 16px 40px -20px var(--glow);
   }
 
   .p-head{
@@ -271,7 +280,6 @@
     font-family:var(--display); font-size:1.18rem; color:var(--heading); font-weight:600;
   }
   
-  /* Status & Live API Ping Badge */
   .p-status-container { display: flex; gap: 6px; align-items: center; flex-wrap: wrap;}
   .p-status{
     font-family:var(--mono); font-size:0.68rem; font-weight:600;
@@ -311,7 +319,7 @@
   .more-work p{color:var(--text-dim); font-size:0.92rem; max-width:480px;}
 
   .contact-card{
-    background:linear-gradient(160deg, rgba(124,131,253,0.08), rgba(45,212,232,0.04));
+    background:linear-gradient(160deg, var(--surface), var(--bg-2));
     border:1px solid var(--border-hover);
     border-radius:16px;
     padding:2.4rem 2rem;
@@ -341,7 +349,9 @@
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </div>
-      <button class="theme-toggle" id="themeToggleBtn" aria-label="Toggle theme">☀️</button>
+      <button class="theme-toggle" id="themeToggleBtn" aria-label="Toggle theme">
+        <span id="themeIcon">⚡</span> <span id="themeName">Cyber Indigo</span>
+      </button>
     </div>
   </div>
 </nav>
@@ -550,15 +560,23 @@
     });
   });
 
-  /* --- 2. THEME TOGGLE --- */
+  /* --- 2. DUAL DARK THEME TOGGLE (Cyber Indigo <-> Emerald Matrix) --- */
   const themeToggleBtn = document.getElementById('themeToggleBtn');
   const htmlElement = document.documentElement;
+  const themeNameSpan = document.getElementById('themeName');
+  const themeIconSpan = document.getElementById('themeIcon');
   
   themeToggleBtn.addEventListener('click', () => {
     const currentTheme = htmlElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    htmlElement.setAttribute('data-theme', newTheme);
-    themeToggleBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    if (currentTheme === 'cyber-indigo') {
+      htmlElement.setAttribute('data-theme', 'emerald-matrix');
+      themeNameSpan.textContent = 'Emerald Matrix';
+      themeIconSpan.textContent = '🟢';
+    } else {
+      htmlElement.setAttribute('data-theme', 'cyber-indigo');
+      themeNameSpan.textContent = 'Cyber Indigo';
+      themeIconSpan.textContent = '⚡';
+    }
   });
 
   /* --- 3. PROJECT FILTERS --- */
@@ -586,8 +604,7 @@
     const badge = document.getElementById(badgeId);
     if (!badge) return;
     try {
-      // Use no-cors mode or direct fetch to check if alive (Render returns docs or root)
-      const response = await fetch(url, { method: 'HEAD', mode: 'no-cors' });
+      await fetch(url, { method: 'HEAD', mode: 'no-cors' });
       badge.innerHTML = '<span class="api-ping-dot"></span>API Online';
       badge.classList.add('online');
     } catch (error) {
@@ -595,7 +612,6 @@
     }
   }
 
-  // Ping les APIs respectives de tes deux projets hébergés sur Render
   checkApiStatus('https://real-time-fraude-mlop.onrender.com/docs', 'pingBadge1');
   checkApiStatus('https://ecommerce-ml-api-gqub.onrender.com/docs', 'pingBadge2');
 </script>
