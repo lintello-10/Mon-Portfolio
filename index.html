@@ -27,22 +27,22 @@
     --accent-grad: linear-gradient(135deg, var(--indigo) 20%, var(--cyan) 100%);
   }
 
-  /* --- THÈME 2 : DEEP SPACE (Sombre ultra-premium et contrasté) --- */
-  :root[data-theme="deep-space"] {
-    --bg:#050505;
-    --bg-2:#0a0a0a;
-    --surface:#111111;
-    --surface-hover:#18181b;
-    --border:#27272a;
-    --border-hover:#3f3f46;
-    --text:#9ca3af;
-    --text-dim:#6b7280;
-    --heading:#ffffff;
-    --indigo:#6366f1;
-    --cyan:#06b6d4;
+  /* --- THÈME 2 : EMERALD MATRIX (Sombre stylisé alternatif) --- */
+  :root[data-theme="emerald-matrix"] {
+    --bg:#050b08;
+    --bg-2:#08140f;
+    --surface:#0c1c14;
+    --surface-hover:#10261c;
+    --border:#173627;
+    --border-hover:#224f38;
+    --text:#9fb8ac;
+    --text-dim:#648575;
+    --heading:#ecfdf5;
+    --indigo:#10b981;
+    --cyan:#34d399;
     --amber:#fbbf24;
-    --glow: rgba(99, 102, 241, 0.08);
-    --accent-grad: linear-gradient(135deg, #6366f1 20%, #06b6d4 100%);
+    --glow: rgba(52,211,153,0.06);
+    --accent-grad: linear-gradient(135deg, #059669 20%, #34d399 100%);
   }
 
   :root{
@@ -56,8 +56,9 @@
 
   body{
     background:
-      linear-gradient(to right, rgba(255,255,255,0.012) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255,255,255,0.012) 1px, transparent 1px),
+      /* Motif grille high-tech subtil en arrière-plan */
+      linear-gradient(to right, rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.015) 1px, transparent 1px),
       radial-gradient(1100px 500px at 15% -5%, var(--glow), transparent 60%),
       var(--bg);
     background-size: 32px 32px, 32px 32px, auto, auto;
@@ -70,7 +71,7 @@
   }
 
   a{color:inherit;}
-  ::selection{background:rgba(6,182,212,0.3); color:#fff;}
+  ::selection{background:rgba(45,212,232,0.35); color:#fff;}
 
   :focus-visible{
     outline:2px solid var(--cyan);
@@ -84,7 +85,8 @@
   nav{
     position:sticky; top:0; z-index:50;
     backdrop-filter:blur(14px) saturate(140%);
-    background:rgba(10, 13, 18, 0.82);
+    background:var(--bg);
+    opacity: 0.95;
     border-bottom:1px solid var(--border);
     transition: background 0.3s ease, border-color 0.3s ease;
   }
@@ -94,7 +96,7 @@
   }
   .nav-id{
     font-family:var(--mono); font-size:0.85rem; color:var(--heading);
-    display:flex; align-items:center; gap:8px; letter-spacing:0.04em;
+    display:flex; align-items:center; gap:8px;
   }
   .nav-id .dot{width:8px; height:8px; border-radius:50%; background:var(--cyan); box-shadow:0 0 8px var(--cyan); flex-shrink:0;}
   .nav-right {display: flex; align-items: center; gap: 1.5rem;}
@@ -119,13 +121,10 @@
   @media (max-width:600px){ .nav-links{gap:1rem;} .nav-links a{font-size:0.72rem;} }
 
   /* ---------- HERO ---------- */
-  header.hero{
-    padding:4.5rem 0 3rem 0;
-    animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
+  header.hero{padding:4.5rem 0 3rem 0;}
   .eyebrow{
     font-family:var(--mono); font-size:0.8rem; color:var(--cyan);
-    letter-spacing:0.06em; margin-bottom:1.1rem;
+    letter-spacing:0.02em; margin-bottom:1.1rem;
     display:flex; align-items:center; gap:10px;
   }
   .eyebrow::before{content:''; width:22px; height:1px; background:var(--cyan); opacity:0.6;}
@@ -142,7 +141,7 @@
     background: var(--accent-grad);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     background-clip: text;
-    filter: drop-shadow(0 0 25px rgba(6,182,212,0.2));
+    filter: drop-shadow(0 0 25px rgba(45,212,232,0.25));
   }
 
   .lede{max-width:620px; color:var(--text); font-size:1.06rem;}
@@ -207,19 +206,11 @@
   }
 
   /* ---------- SECTION SHELL ---------- */
-  section{
-    padding:3.2rem 0;
-    animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
+  section{padding:3.2rem 0;}
   .section-head{display:flex; align-items:baseline; gap:0.9rem; margin-bottom:1.8rem;}
   .section-num{font-family:var(--mono); font-size:0.8rem; color:var(--text-dim);}
   h2{font-family:var(--display); font-weight:600; font-size:1.5rem; color:var(--heading);}
   .section-rule{flex:1; height:1px; background:var(--border);}
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
 
   /* ---------- SKILLS ---------- */
   .skill-groups{display:flex; flex-direction:column; gap:1.1rem;}
@@ -295,16 +286,16 @@
     padding:3px 9px; border-radius:20px; white-space:nowrap;
     text-transform:uppercase; letter-spacing:0.04em;
   }
-  .p-status.live{color:#38bdf8; background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.3);}
+  .p-status.live{color:#4ee3b0; background:rgba(78,227,176,0.1); border:1px solid rgba(78,227,176,0.3);}
   
   .api-ping-badge {
     font-family: var(--mono); font-size: 0.65rem;
     padding: 3px 8px; border-radius: 20px;
-    background: rgba(6,182,212,0.1); border: 1px solid rgba(6,182,212,0.3);
+    background: rgba(45,212,232,0.1); border: 1px solid rgba(45,212,232,0.3);
     color: var(--cyan); display: inline-flex; align-items: center; gap: 5px;
   }
   .api-ping-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--amber); }
-  .api-ping-badge.online .api-ping-dot { background: #38bdf8; box-shadow: 0 0 6px #38bdf8; }
+  .api-ping-badge.online .api-ping-dot { background: #4ee3b0; box-shadow: 0 0 6px #4ee3b0; }
 
   .p-role{font-family:var(--mono); font-size:0.74rem; color:var(--cyan); margin-bottom:0.9rem;}
   .p-body p{font-size:0.94rem; color:var(--text); margin-bottom:0.55rem;}
@@ -525,7 +516,7 @@
           <span>BigQuery</span><span>SQL</span><span>XGBoost</span><span>Streamlit</span>
         </div>
         <div class="p-links">
-          <a href="https://bqecommerceproject-up6hblseqvj8tggchxdfjt.streamlit.app/" target="_blank" rel="noopener" class="btn btn-primary">🌐 View application (V1)</a>
+          <a href="https://bqecommerceproject-up6hblseqvj8tggchxdfjt.streamlit.app/" target="_blank" rel="noopener" class="btn btn-primary">🌐 View app (V1)</a>
           <a href="https://github.com/lintello-10/bq_ecommerce_project" target="_blank" rel="noopener" class="btn btn-ghost">Source code ↗</a>
         </div>
       </article>
@@ -569,7 +560,7 @@
     });
   });
 
-  /* --- 2. DUAL DARK THEME TOGGLE (Cyber Indigo <-> Deep Space) --- */
+  /* --- 2. DUAL DARK THEME TOGGLE (Cyber Indigo <-> Emerald Matrix) --- */
   const themeToggleBtn = document.getElementById('themeToggleBtn');
   const htmlElement = document.documentElement;
   const themeNameSpan = document.getElementById('themeName');
@@ -578,9 +569,9 @@
   themeToggleBtn.addEventListener('click', () => {
     const currentTheme = htmlElement.getAttribute('data-theme');
     if (currentTheme === 'cyber-indigo') {
-      htmlElement.setAttribute('data-theme', 'deep-space');
-      themeNameSpan.textContent = 'Deep Space';
-      themeIconSpan.textContent = '🌌';
+      htmlElement.setAttribute('data-theme', 'emerald-matrix');
+      themeNameSpan.textContent = 'Emerald Matrix';
+      themeIconSpan.textContent = '🟢';
     } else {
       htmlElement.setAttribute('data-theme', 'cyber-indigo');
       themeNameSpan.textContent = 'Cyber Indigo';
