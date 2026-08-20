@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
+  :root[data-theme="dark"] {
     --bg:#0a0d12;
     --bg-2:#0d1119;
     --surface:#11151f;
@@ -22,29 +22,43 @@
     --indigo:#7c83fd;
     --cyan:#2dd4e8;
     --amber:#f2b84b;
+  }
+
+  :root[data-theme="light"] {
+    --bg:#f8fafc;
+    --bg-2:#f1f5f9;
+    --surface:#ffffff;
+    --surface-hover:#f8fafc;
+    --border:#e2e8f0;
+    --border-hover:#cbd5e1;
+    --text:#475569;
+    --text-dim:#94a3b8;
+    --heading:#0f172a;
+    --indigo:#6366f1;
+    --cyan:#0ea5e9;
+    --amber:#d97706;
+  }
+
+  :root{
     --mono:'JetBrains Mono', ui-monospace, monospace;
     --sans:'Inter', -apple-system, sans-serif;
     --display:'Space Grotesk', var(--sans);
   }
 
   *{margin:0;padding:0;box-sizing:border-box;}
-
   html{scroll-behavior:smooth;}
-
-  @media (prefers-reduced-motion: reduce){
-    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
-  }
 
   body{
     background:
-      radial-gradient(1100px 500px at 15% -5%, rgba(124,131,253,0.10), transparent 60%),
-      radial-gradient(900px 500px at 100% 10%, rgba(45,212,232,0.07), transparent 55%),
+      radial-gradient(1100px 500px at 15% -5%, rgba(124,131,253,0.08), transparent 60%),
+      radial-gradient(900px 500px at 100% 10%, rgba(45,212,232,0.05), transparent 55%),
       var(--bg);
     color:var(--text);
     font-family:var(--sans);
     line-height:1.65;
     font-size:16px;
     -webkit-font-smoothing:antialiased;
+    transition: background 0.3s ease, color 0.3s ease;
   }
 
   a{color:inherit;}
@@ -62,8 +76,10 @@
   nav{
     position:sticky; top:0; z-index:50;
     backdrop-filter:blur(14px) saturate(140%);
-    background:rgba(10,13,18,0.72);
+    background:var(--bg);
+    opacity: 0.95;
     border-bottom:1px solid var(--border);
+    transition: background 0.3s ease, border-color 0.3s ease;
   }
   .nav-inner{
     max-width:960px; margin:0 auto; padding:0.9rem 1.5rem;
@@ -74,15 +90,28 @@
     display:flex; align-items:center; gap:8px;
   }
   .nav-id .dot{width:8px; height:8px; border-radius:50%; background:var(--cyan); box-shadow:0 0 8px var(--cyan); flex-shrink:0;}
+  .nav-right {display: flex; align-items: center; gap: 1.5rem;}
   .nav-links{display:flex; gap:1.6rem; font-family:var(--mono); font-size:0.8rem;}
   .nav-links a{color:var(--text-dim); text-decoration:none; transition:color 0.2s;}
   .nav-links a:hover{color:var(--cyan);}
+  
+  .theme-toggle {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+  .theme-toggle:hover {border-color: var(--cyan); transform: scale(1.05);}
+
   @media (max-width:600px){ .nav-links{gap:1rem;} .nav-links a{font-size:0.72rem;} }
 
   /* ---------- HERO ---------- */
-  header.hero{
-    padding:4.5rem 0 3rem 0;
-  }
+  header.hero{padding:4.5rem 0 3rem 0;}
   .eyebrow{
     font-family:var(--mono); font-size:0.8rem; color:var(--cyan);
     letter-spacing:0.02em; margin-bottom:1.1rem;
@@ -105,14 +134,10 @@
     filter: drop-shadow(0 0 25px rgba(45,212,232,0.25));
   }
 
-  .lede{
-    max-width:620px; color:var(--text); font-size:1.06rem;
-  }
+  .lede{max-width:620px; color:var(--text); font-size:1.06rem;}
   .lede strong{color:var(--heading); font-weight:600;}
 
-  .hero-cta{
-    display:flex; gap:0.8rem; flex-wrap:wrap; margin-top:1.8rem;
-  }
+  .hero-cta{display:flex; gap:0.8rem; flex-wrap:wrap; margin-top:1.8rem;}
 
   .btn{
     display:inline-flex; align-items:center; gap:7px;
@@ -124,11 +149,11 @@
   }
   .btn-primary{
     background:linear-gradient(120deg, var(--indigo), #5b63e0);
-    color:#0a0d12; border:none; font-weight:600;
+    color:#fff; border:none; font-weight:600;
   }
   .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 30px -6px rgba(124,131,253,0.65);
+    box-shadow: 0 10px 30px -6px rgba(124,131,253,0.5);
   }
   .btn-ghost{color:var(--text); background:var(--surface);}
   .btn-ghost:hover{border-color:var(--border-hover); color:var(--heading); transform:translateY(-2px);}
@@ -146,13 +171,8 @@
     font-family:var(--mono); font-size:0.72rem; color:var(--text-dim);
     text-transform:uppercase; letter-spacing:0.08em; margin-bottom:1rem;
   }
-  .pipeline-track{
-    display:flex; align-items:center; min-width:620px;
-  }
-  .p-stage{
-    display:flex; flex-direction:column; align-items:center; gap:8px;
-    flex:1; text-align:center;
-  }
+  .pipeline-track{display:flex; align-items:center; min-width:620px;}
+  .p-stage{display:flex; flex-direction:column; align-items:center; gap:8px; flex:1; text-align:center;}
   .p-node{
     width:38px; height:38px; border-radius:9px;
     display:flex; align-items:center; justify-content:center;
@@ -171,19 +191,15 @@
   .p-stage span{font-family:var(--mono); font-size:0.68rem; color:var(--text-dim);}
   .p-stage.active span{color:var(--cyan);}
   .p-connector{
-    flex:0.5; height:1px; background:linear-gradient(90deg, var(--border-hover), var(--border-hover));
+    flex:0.5; height:1px; background:var(--border-hover);
     position:relative; top:-19px;
   }
 
   /* ---------- SECTION SHELL ---------- */
   section{padding:3.2rem 0;}
-  .section-head{
-    display:flex; align-items:baseline; gap:0.9rem; margin-bottom:1.8rem;
-  }
+  .section-head{display:flex; align-items:baseline; gap:0.9rem; margin-bottom:1.8rem;}
   .section-num{font-family:var(--mono); font-size:0.8rem; color:var(--text-dim);}
-  h2{
-    font-family:var(--display); font-weight:600; font-size:1.5rem; color:var(--heading);
-  }
+  h2{font-family:var(--display); font-weight:600; font-size:1.5rem; color:var(--heading);}
   .section-rule{flex:1; height:1px; background:var(--border);}
 
   /* ---------- SKILLS ---------- */
@@ -202,22 +218,51 @@
   }
   .skill-tag:hover{border-color:var(--indigo); color:var(--heading); transform:translateY(-1px);}
 
-  /* ---------- PROJECTS ---------- */
+  /* ---------- PROJECT FILTERS ---------- */
+  .project-filters {
+    display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;
+  }
+  .filter-btn {
+    font-family: var(--mono); font-size: 0.75rem;
+    background: var(--surface); border: 1px solid var(--border);
+    color: var(--text-dim); padding: 0.35rem 0.85rem; border-radius: 20px;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--bg-2); color: var(--heading); border-color: var(--cyan);
+  }
+
+  /* ---------- PROJECTS (GLOW EFFECT & CARDS) ---------- */
   .projects{display:flex; flex-direction:column; gap:1.3rem;}
+  
   .project-card{
-    background:var(--surface);
-    border:1px solid var(--border);
-    border-radius:14px;
-    padding:1.7rem 1.8rem;
-    position:relative;
-    transition:transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.7rem 1.8rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   }
+
+  /* Spotlight mouse glow effect */
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(124,131,253,0.06), transparent 40%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+  .project-card:hover::before { opacity: 1; }
+  
   .project-card:hover{
-    transform:translateY(-3px);
-    border-color:var(--indigo);
-    background:var(--surface-hover);
-    box-shadow:0 16px 40px -20px rgba(124,131,253,0.35);
+    transform: translateY(-3px);
+    border-color: var(--indigo);
+    box-shadow: 0 16px 40px -20px rgba(124,131,253,0.3);
   }
+
   .p-head{
     display:flex; justify-content:space-between; align-items:flex-start;
     gap:1rem; flex-wrap:wrap; margin-bottom:0.35rem;
@@ -225,16 +270,26 @@
   .p-head h3{
     font-family:var(--display); font-size:1.18rem; color:var(--heading); font-weight:600;
   }
+  
+  /* Status & Live API Ping Badge */
+  .p-status-container { display: flex; gap: 6px; align-items: center; flex-wrap: wrap;}
   .p-status{
     font-family:var(--mono); font-size:0.68rem; font-weight:600;
     padding:3px 9px; border-radius:20px; white-space:nowrap;
     text-transform:uppercase; letter-spacing:0.04em;
   }
   .p-status.live{color:#4ee3b0; background:rgba(78,227,176,0.1); border:1px solid rgba(78,227,176,0.3);}
-  .p-status.demo{color:var(--amber); background:rgba(242,184,75,0.1); border:1px solid rgba(242,184,75,0.3);}
+  
+  .api-ping-badge {
+    font-family: var(--mono); font-size: 0.65rem;
+    padding: 3px 8px; border-radius: 20px;
+    background: rgba(45,212,232,0.1); border: 1px solid rgba(45,212,232,0.3);
+    color: var(--cyan); display: inline-flex; align-items: center; gap: 5px;
+  }
+  .api-ping-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--amber); }
+  .api-ping-badge.online .api-ping-dot { background: #4ee3b0; box-shadow: 0 0 6px #4ee3b0; }
 
   .p-role{font-family:var(--mono); font-size:0.74rem; color:var(--cyan); margin-bottom:0.9rem;}
-
   .p-body p{font-size:0.94rem; color:var(--text); margin-bottom:0.55rem;}
   .p-body p b{color:var(--heading); font-weight:600;}
 
@@ -247,7 +302,7 @@
 
   .p-links{display:flex; gap:0.7rem; flex-wrap:wrap;}
 
-  /* ---------- MORE WORK ---------- */
+  /* ---------- MORE WORK & CONTACT ---------- */
   .more-work{
     display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;
     background:var(--surface); border:1px solid var(--border); border-radius:12px;
@@ -255,9 +310,8 @@
   }
   .more-work p{color:var(--text-dim); font-size:0.92rem; max-width:480px;}
 
-  /* ---------- CONTACT ---------- */
   .contact-card{
-    background:linear-gradient(160deg, rgba(124,131,253,0.09), rgba(45,212,232,0.05));
+    background:linear-gradient(160deg, rgba(124,131,253,0.08), rgba(45,212,232,0.04));
     border:1px solid var(--border-hover);
     border-radius:16px;
     padding:2.4rem 2rem;
@@ -281,10 +335,13 @@
 <nav>
   <div class="nav-inner">
     <div class="nav-id"><span class="dot"></span>bourama.dramé</div>
-    <div class="nav-links">
-      <a href="#stack">Stack</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#stack">Stack</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="theme-toggle" id="themeToggleBtn" aria-label="Toggle theme">☀️</button>
     </div>
   </div>
 </nav>
@@ -307,7 +364,6 @@
 
     <div class="pipeline">
       <p class="pipeline-label">My MLOps &amp; CI/CD workflow</p>
-      
       <div class="pipeline-track">
         <div class="p-stage active"><div class="p-node">📊</div><span>DATA</span></div>
         <div class="p-connector"></div>
@@ -375,13 +431,23 @@
       <span class="section-num">02</span><h2>Featured Projects</h2><div class="section-rule"></div>
     </div>
 
+    <!-- Filtres de projets interactifs -->
+    <div class="project-filters">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="mlops">MLOps & API</button>
+      <button class="filter-btn" data-filter="bigdata">Big Data & SQL</button>
+    </div>
+
     <div class="projects">
 
-      <!-- NOUVEAU PROJET AJOUTÉ TOUT EN HAUT -->
-      <article class="project-card">
+      <!-- PROJET 1 : FRAUD DETECTION -->
+      <article class="project-card" data-category="mlops">
         <div class="p-head">
           <h3>Real-Time Fraud Detection API &amp; MLOps Architecture</h3>
-          <span class="p-status live">● Live Prod</span>
+          <div class="p-status-container">
+            <span class="p-status live">● Live Prod</span>
+            <span class="api-ping-badge" id="pingBadge1"><span class="api-ping-dot"></span>Checking API...</span>
+          </div>
         </div>
         <p class="p-role">FastAPI · Scikit-Learn · XGBoost · MLflow · Docker · GitHub Actions · Streamlit</p>
         <div class="p-body">
@@ -399,10 +465,14 @@
         </div>
       </article>
 
-      <article class="project-card">
+      <!-- PROJET 2 : E-COMMERCE MLOPS -->
+      <article class="project-card" data-category="mlops">
         <div class="p-head">
           <h3>E-Commerce MLOps API — Real-time Purchase Prediction</h3>
-          <span class="p-status live">● Live V2</span>
+          <div class="p-status-container">
+            <span class="p-status live">● Live V2</span>
+            <span class="api-ping-badge" id="pingBadge2"><span class="api-ping-dot"></span>Checking API...</span>
+          </div>
         </div>
         <p class="p-role">FastAPI · XGBoost · Docker · GitHub Actions (CI/CD) · Streamlit</p>
         <div class="p-body">
@@ -420,7 +490,8 @@
         </div>
       </article>
 
-      <article class="project-card">
+      <!-- PROJET 3 : GA4 BIGQUERY -->
+      <article class="project-card" data-category="bigdata">
         <div class="p-head">
           <h3>Purchase Analysis & Prediction — GA4 + BigQuery</h3>
           <span class="p-status live">● Live V1</span>
@@ -468,6 +539,66 @@
 <footer>
   <p>Designed by Dramé Bourama — powered by <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a></p>
 </footer>
+
+<script>
+  /* --- 1. SPOTLIGHT MOUSE EFFECT --- */
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+      card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+    });
+  });
+
+  /* --- 2. THEME TOGGLE --- */
+  const themeToggleBtn = document.getElementById('themeToggleBtn');
+  const htmlElement = document.documentElement;
+  
+  themeToggleBtn.addEventListener('click', () => {
+    const currentTheme = htmlElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    htmlElement.setAttribute('data-theme', newTheme);
+    themeToggleBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+  });
+
+  /* --- 3. PROJECT FILTERS --- */
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.getAttribute('data-filter');
+
+      projectCards.forEach(card => {
+        if(filter === 'all' || card.getAttribute('data-category') === filter) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  /* --- 4. LIVE API STATUS PING --- */
+  async function checkApiStatus(url, badgeId) {
+    const badge = document.getElementById(badgeId);
+    if (!badge) return;
+    try {
+      // Use no-cors mode or direct fetch to check if alive (Render returns docs or root)
+      const response = await fetch(url, { method: 'HEAD', mode: 'no-cors' });
+      badge.innerHTML = '<span class="api-ping-dot"></span>API Online';
+      badge.classList.add('online');
+    } catch (error) {
+      badge.innerHTML = '<span class="api-ping-dot"></span>Spinning Up / Sleeping';
+    }
+  }
+
+  // Ping les APIs respectives de tes deux projets hébergés sur Render
+  checkApiStatus('https://real-time-fraude-mlop.onrender.com/docs', 'pingBadge1');
+  checkApiStatus('https://ecommerce-ml-api-gqub.onrender.com/docs', 'pingBadge2');
+</script>
 
 </body>
 </html>
