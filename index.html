@@ -300,6 +300,7 @@
   .p-role{font-family:var(--mono); font-size:0.74rem; color:var(--cyan); margin-bottom:0.9rem;}
   .p-body p{font-size:0.94rem; color:var(--text); margin-bottom:0.55rem;}
   .p-body p b{color:var(--heading); font-weight:600;}
+  .p-body code{font-family:var(--mono); font-size:0.84em; color:var(--cyan); background:var(--bg-2); border:1px solid var(--border); padding:1px 5px; border-radius:4px;}
 
   .p-stack{display:flex; flex-wrap:wrap; gap:0.4rem; margin:1rem 0 1.2rem 0;}
   .p-stack span{
@@ -445,7 +446,9 @@
     <div class="project-filters">
       <button class="filter-btn active" data-filter="all">All Projects</button>
       <button class="filter-btn" data-filter="mlops">MLOps & API</button>
+      <button class="filter-btn" data-filter="timeseries">Time Series</button>
       <button class="filter-btn" data-filter="bigdata">Big Data & SQL</button>
+      <button class="filter-btn" data-filter="datascience">Data Cleaning & ML</button>
     </div>
 
     <div class="projects">
@@ -475,7 +478,28 @@
         </div>
       </article>
 
-      <!-- PROJET 2 : E-COMMERCE MLOPS -->
+      <!-- PROJET 2 : HOUSEHOLD ELECTRICITY CONSUMPTION FORECASTING (NOUVEAU) -->
+      <article class="project-card" data-category="mlops timeseries">
+        <div class="p-head">
+          <h3>Household Electricity Consumption Forecasting — Time Series Study</h3>
+          <span class="p-status live">● Demo / Deployed</span>
+        </div>
+        <p class="p-role">Python · Time Series · Scikit-Learn · MLflow · Streamlit</p>
+        <div class="p-body">
+          <p><b>Problem:</b> Forecast 24-hour household energy demand accurately using historical consumption patterns and cyclical calendar features without external weather dependencies.</p>
+          <p><b>Solution:</b> Time-series forecasting study on the UCI dataset using `HistGradientBoostingRegressor` evaluated across 193 chronological rolling daily windows, tracked locally with <b>MLflow</b>, automated via Pytest, and visualized via an interactive <b>Streamlit</b> dashboard.</p>
+          <p><b>Business Impact &amp; Results:</b> Demonstrates rigorous time-series validation, rolling-origin evaluation methods, and reproducible experiment tracking for forecasting industrial or domestic energy loads.</p>
+        </div>
+        <div class="p-stack">
+          <span>Python</span><span>Time Series</span><span>Scikit-Learn</span><span>MLflow</span><span>Streamlit</span><span>Pandas</span><span>Pytest</span><span>GitHub Actions</span>
+        </div>
+        <div class="p-links">
+          <a href="https://energyconsumptionforecasting-9ejqpwflvhxzergfsympin.streamlit.app/" target="_blank" rel="noopener" class="btn btn-primary">🌐 View app</a>
+          <a href="https://github.com/lintello-10/energy_consumption_forecasting" target="_blank" rel="noopener" class="btn btn-ghost">Source Code ↗</a>
+        </div>
+      </article>
+
+      <!-- PROJET 3 : E-COMMERCE MLOPS -->
       <article class="project-card" data-category="mlops">
         <div class="p-head">
           <h3>E-Commerce MLOps API — Real-time Purchase Prediction</h3>
@@ -500,7 +524,7 @@
         </div>
       </article>
 
-      <!-- PROJET 3 : GA4 BIGQUERY -->
+      <!-- PROJET 4 : GA4 BIGQUERY -->
       <article class="project-card" data-category="bigdata">
         <div class="p-head">
           <h3>Purchase Analysis & Prediction — GA4 + BigQuery</h3>
@@ -518,6 +542,27 @@
         <div class="p-links">
           <a href="https://bqecommerceproject-9lwwgccusybdkxrhcame8m.streamlit.app/" target="_blank" rel="noopener" class="btn btn-primary">🌐 View app (V1)</a>
           <a href="https://github.com/lintello-10/bq_ecommerce_project" target="_blank" rel="noopener" class="btn btn-ghost">Source code ↗</a>
+        </div>
+      </article>
+
+      <!-- PROJET 5 : TITANIC DATA CLEANING & FEATURE ENGINEERING -->
+      <article class="project-card" data-category="datascience">
+        <div class="p-head">
+          <h3>Titanic Data Cleaning &amp; Feature Engineering</h3>
+          <span class="p-status live">● Demo / Deployed</span>
+        </div>
+        <p class="p-role">Python · Pandas · Scikit-Learn · Streamlit</p>
+        <div class="p-body">
+          <p><b>Problem:</b> Turn the raw Kaggle Titanic passenger manifest, with its missing values and text-based features, into a clean dataset ready for predictive modeling.</p>
+          <p><b>Solution:</b> Rigorous preprocessing pipeline: missing-data inspection with <code>.info()</code> and <code>.isnull()</code>, <b>median imputation of <code>Age</code> grouped by passenger class</b>, mode imputation of <code>Embarked</code>, logical handling of <code>Cabin</code>, and categorical encoding of <code>Sex</code> and <code>Embarked</code>. The result feeds a model deployed in an interactive <b>Streamlit</b> app that predicts passenger survival.</p>
+          <p><b>Business Impact &amp; Results:</b> Demonstrates solid data-wrangling fundamentals (imputation strategies, encoding, feature preparation) and the path from a raw dataset to a live prediction app.</p>
+        </div>
+        <div class="p-stack">
+          <span>Python</span><span>Pandas</span><span>NumPy</span><span>Scikit-Learn</span><span>Streamlit</span><span>Git &amp; GitHub</span>
+        </div>
+        <div class="p-links">
+          <a href="https://titanic-data-cleaning-features-engineering-cxmhasqwtd3xwghum4p.streamlit.app/" target="_blank" rel="noopener" class="btn btn-primary">🌐 View app</a>
+          <a href="https://github.com/lintello-10/Titanic-Data-cleaning-Features-Engineering" target="_blank" rel="noopener" class="btn btn-ghost">Source Code ↗</a>
         </div>
       </article>
 
@@ -579,7 +624,7 @@
     }
   });
 
-  /* --- 3. PROJECT FILTERS --- */
+  /* --- 3. PROJECT FILTERS (multi-catégories : data-category="mlops timeseries") --- */
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
 
@@ -590,7 +635,8 @@
       const filter = btn.getAttribute('data-filter');
 
       projectCards.forEach(card => {
-        if(filter === 'all' || card.getAttribute('data-category') === filter) {
+        const categories = (card.getAttribute('data-category') || '').split(/\s+/);
+        if(filter === 'all' || categories.includes(filter)) {
           card.style.display = 'block';
         } else {
           card.style.display = 'none';
